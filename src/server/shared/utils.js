@@ -7,7 +7,6 @@ class Utils {
         this.sellsFileName = sellsFileName
     }
     getProductData() {
-        console.log('Teste');
         const productData = fs.readFileSync(path.resolve(__dirname, `${this.prodsFileName}.json`))
         return JSON.parse(productData)
     }
