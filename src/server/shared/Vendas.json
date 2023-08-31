@@ -1,0 +1,63 @@
+{
+    "5984": {
+        "items": [
+            {
+                "name": "Yogurte Bom Leite",
+                "size": "1 L",
+                "cost": "R$5.39",
+                "barcode": 75849631548,
+                "quantity": 3
+            },
+            {
+                "name": "Yogurte Boa Vista",
+                "size": "1 L",
+                "cost": "R$5.99",
+                "barcode": 75849631254,
+                "quantity": 1
+            },
+            {
+                "name": "Feijão Turqueza",
+                "size": "1 Kg",
+                "cost": "R$10.99",
+                "barcode": 75849635781,
+                "quantity": 2
+            },
+            {
+                "name": "Arroz Pop",
+                "size": "1 Kg",
+                "cost": "R$5.99",
+                "barcode": 75849638794,
+                "quantity": 3
+            }
+        ],
+        "time": "06:50:47",
+        "date": "28/08/2023"
+    },
+    "5431": {
+        "items": [
+            {
+                "name": "Yogurte Bom Leite",
+                "size": "1 L",
+                "cost": "R$5.39",
+                "barcode": 75849631548,
+                "quantity": 1
+            },
+            {
+                "name": "Feijão Turqueza",
+                "size": "1 Kg",
+                "cost": "R$10.99",
+                "barcode": 75849635781,
+                "quantity": 1
+            },
+            {
+                "name": "Arroz Pop",
+                "size": "1 Kg",
+                "cost": "R$5.99",
+                "barcode": 75849638794,
+                "quantity": 2
+            }
+        ],
+        "time": "07:20:34",
+        "date": "28/08/2023"
+    }
+}
