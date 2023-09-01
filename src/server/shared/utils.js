@@ -13,6 +13,13 @@ class Utils {
     setProductData(data) {
         fs.writeFileSync(path.resolve(__dirname, `${this.prodsFileName}.json`), JSON.stringify(data))
     }
+    getSellData(){
+        const sellData = fs.readFileSync(path.resolve(__dirname, `${this.sellsFileName}.json`))
+        return JSON.parse(sellData)
+    }
+    setSellData(data){
+        fs.writeFileSync(path.resolve(__dirname, `${this.sellsFileName}.json`), JSON.stringify(data))
+    }
 }
 
 module.exports = Utils

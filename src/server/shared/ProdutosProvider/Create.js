@@ -9,6 +9,8 @@ const createProvider = (data) => {
     produtos[newProductId] = data
 
     utils.setProductData(produtos)
+
+    return newProductId
 }
 
 module.exports = createProvider

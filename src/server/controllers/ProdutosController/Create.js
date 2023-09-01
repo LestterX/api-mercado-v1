@@ -8,10 +8,10 @@ const create = (req, res) => {
     
     if(data.barcode === '') data.barcode = barcode
 
-    ProdutosProvider.createProvider(data)
+    const produtoId = ProdutosProvider.createProvider(data)
 
     return res.status(StatusCodes.CREATED).json({
-        default: 'created'
+        default: produtoId
     })
 }
 
