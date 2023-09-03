@@ -6,8 +6,14 @@ const create = (req, res) => {
 
     const createId = VendasProvider.createProvider(data)
 
+    if (createId instanceof Error) {
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors: createId.message
+        })
+    }
+    
     return res.status(StatusCodes.CREATED).json({
-        default: createId
+        result: createId
     })
 }
 

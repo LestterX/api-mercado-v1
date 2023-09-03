@@ -2,14 +2,20 @@ const StatusCodes = require('http-status-codes')
 const VendasProvider = require('../../shared/VendasProvider')
 
 const updateById = (req, res) => {
+
     const id = req.params.id
     const data = req.body
 
-    VendasProvider.updateByIdProvider(data, id)
+    const vendasId = VendasProvider.updateByIdProvider(data, id)
     
-    return res.status(StatusCodes.OK).json({
-        default: 'updated'
-    })
+    if(vendasId instanceof Error) {
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            errors: vendasId.message
+        })
+    }
+
+    return res.status(StatusCodes.NO_CONTENT).send()
+
 }
 
 module.exports = updateById

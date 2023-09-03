@@ -4,14 +4,16 @@ const utils = new Utils(null, 'Vendas')
 
 const deleteByIdProvider = (id) => {
     
-    if(!id) {
-        console.log('No ID was given');
-        return new Error('No ID was given')
-    }
+    if(!id) {return new Error('Sem ID enviado')}
 
-    const vendas = utils.getSellData()
-    delete vendas[id]
-    utils.setSellData(vendas)
+    try {
+        const vendas = utils.getSellData()
+        delete vendas[id]
+        utils.setSellData(vendas)
+    } catch (error) {
+        console.log(error);
+        return new Error(`Erro ao apagar registro`)
+    }
 }
 
 module.exports = deleteByIdProvider

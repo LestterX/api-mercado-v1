@@ -5,7 +5,6 @@ const updateByIdProvider = (data, id) => {
 
     try {
         const produtos = utils.getProductData()
-        console.log(produtos[id]);
         if(produtos[id] === undefined) return new Error(`O Id fornecido não existe`)
         produtos[id] = data
         utils.setProductData(produtos)
