@@ -2,9 +2,10 @@ const fs = require('fs')
 const path = require('path')
 
 class Utils {
-    constructor(prodsFileName = undefined, sellsFileName = undefined) {
+    constructor(prodsFileName = undefined, sellsFileName = undefined, blackListTokensFileName = undefined) {
         this.prodsFileName = prodsFileName
         this.sellsFileName = sellsFileName
+        this.blackListTokensFileName = blackListTokensFileName
     }
     getProductData() {
         const productData = fs.readFileSync(path.resolve(__dirname, `${this.prodsFileName}.json`))
@@ -19,6 +20,14 @@ class Utils {
     }
     setSellData(data){
         fs.writeFileSync(path.resolve(__dirname, `${this.sellsFileName}.json`), JSON.stringify(data))
+    }
+
+    getBlackListTokens(){
+        const blackListTokensData = fs.readFileSync(path.resolve(__dirname, `${this.blackListTokensFileName}.json`))
+        return JSON.parse(blackListTokensData)
+    }
+    setBlackListTokens(token){
+        fs.writeFileSync(path.resolve(__dirname, `${this.blackListTokensFileName}.json`), JSON.stringify(token))
     }
 }
 
