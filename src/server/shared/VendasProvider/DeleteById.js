@@ -8,6 +8,7 @@ const deleteByIdProvider = (id) => {
 
     try {
         const vendas = utils.getSellData()
+        if(!vendas[id]) return new Error('O Id fornecido não existe')
         delete vendas[id]
         utils.setSellData(vendas)
     } catch (error) {
