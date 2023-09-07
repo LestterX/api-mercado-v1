@@ -9,7 +9,7 @@ const auth = (req, res) => {
   if (req.body.username === process.env.USERLOGIN &&
     req.body.password === process.env.PASSLOGIN) {
     try {
-      const token = jwt.sign({ userId: userId }, process.env.SECRET_KEY, { expiresIn: 300 });
+      const token = jwt.sign({ userId: userId }, process.env.SECRET_KEY, { expiresIn: 900 });
       userId++;
       return res.status(StatusCodes.OK).json({
         auth: true,
