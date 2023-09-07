@@ -28,4 +28,6 @@ routes.get('/venda/:id', VendasController.getById);
 routes.put('/venda/:id', Middlewares.verifyToken, VendasController.updateById); //Login Required
 routes.delete('/venda/:id', Middlewares.verifyToken, VendasController.deleteById); //Login Required
 
+routes.get('/venda/:id/getReceipt', Middlewares.verifyToken, VendasController.getReceipt); //Login Required
+
 module.exports = routes;
