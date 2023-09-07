@@ -1,28 +1,28 @@
-const Utils = require('../../shared/utils')
-const utils = new Utils(null, null, 'BlackListTokens')
-const StatusCodes = require('http-status-codes')
+const Utils = require('../../shared/utils');
+const utils = new Utils(null, null, 'BlackListTokens');
+const StatusCodes = require('http-status-codes');
 
 const logOut = (req, res) => {
-    
-    const token = req.headers['x-access-token']
 
-    let tokens = utils.getBlackListTokens()
+  const token = req.headers['x-access-token'];
 
-    if(Object.values(tokens).length >= 10) tokens = {}
+  let tokens = utils.getBlackListTokens();
 
-    let newTokenId = Math.floor(10000 + Math.random() * 90000)
-    if (tokens[newTokenId]) {
-        newTokenId = Math.floor(1000 + Math.random() * 9000)
-    }
+  if (Object.values(tokens).length >= 10) tokens = {};
 
-    tokens[newTokenId] = token
+  let newTokenId = Math.floor(10000 + Math.random() * 90000);
+  if (tokens[newTokenId]) {
+    newTokenId = Math.floor(1000 + Math.random() * 9000);
+  }
 
-    utils.setBlackListTokens(tokens)
+  tokens[newTokenId] = token;
 
-    return res.status(StatusCodes.OK).json({
-        result: 'LogOut efetuado com sucesso'
-    })
+  utils.setBlackListTokens(tokens);
 
-}
+  return res.status(StatusCodes.OK).json({
+    result: 'LogOut efetuado com sucesso'
+  });
 
-module.exports = logOut
+};
+
+module.exports = logOut;

@@ -1,18 +1,18 @@
-const StatusCodes = require('http-status-codes')
-const VendasProvider = require('../../shared/VendasProvider')
+const StatusCodes = require('http-status-codes');
+const VendasProvider = require('../../shared/VendasProvider');
 
 const getById = (req, res) => {
-    const venda = VendasProvider.getByIdProvider(req.params.id)
+  const venda = VendasProvider.getByIdProvider(req.params.id);
 
-    if(venda instanceof Error){
-        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-            errors: venda.message
-        })
-    }
+  if(venda instanceof Error){
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+      errors: venda.message
+    });
+  }
 
-    return res.status(StatusCodes.OK).json({
-        result: venda
-    })
-}
+  return res.status(StatusCodes.OK).json({
+    result: venda
+  });
+};
 
-module.exports = getById
+module.exports = getById;
