@@ -9,8 +9,6 @@ const getReceipt = (req, res) => {
   const id = req.params.id;
   const clientData = req.body;
 
-  console.log(clientData);
-
   if (!clientData.cpf || !clientData.nome) {
     return res.status(StatusCodes.NOT_ACCEPTABLE).json({
       errors: 'Envie o CPF e o Nome do Cliente'
@@ -25,18 +23,35 @@ const getReceipt = (req, res) => {
     });
   }
 
-  const companyInfo = utils.getCompanyInfo();
-  console.log(companyInfo);
 
-  return res.status(StatusCodes.OK).json({
-    result: {
-      companyInfo,
-      client: clientData,
-      venda,
-      date: utils.getDateNow(),
-      time: utils.getTimeNow()
-    }
+  let vendaTotalCost = 0;
+
+  for(let item of venda.items){
+    vendaTotalCost = vendaTotalCost + (item.cost.replace('R$', '') * item.quantity);
+  }
+
+  const companyInfo = utils.getCompanyInfo();
+
+  
+  return res.render('receipt', {
+    companyInfo,
+    client: clientData,
+    venda,
+    vendaTotalCost,
+    date: utils.getDateNow(),
+    time: utils.getTimeNow()
   });
+
+  // return res.status(StatusCodes.OK).json({
+  //   result: {
+  //     companyInfo,
+  //     client: clientData,
+  //     venda,
+  //     vendaTotalCost,
+  //     date: utils.getDateNow(),
+  //     time: utils.getTimeNow()
+  //   }
+  // });
 
 };
 

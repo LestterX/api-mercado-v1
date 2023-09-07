@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="receipt">
+    <h1>Nota Fiscal</h1>
+    <div class="companyInfo">
+      <div class="header">
+        <span class="name"><%= companyInfo.name%></span>
+        <span class="cnpj"><%= companyInfo.cnpj%></span>
+      </div>
+      <span><%= companyInfo.address%></span>
+    </div>
+    <div class="client">
+      <span class="nome"><%= client.nome%></span><br>
+      <span class="cpf">CPF: <%= client.cpf%></span>
+    </div>
+    <table class="items">
+      <thead class="itemsHeader">
+        <tr>
+          <th>ITEM</th>
+          <th>SIZE</th>
+          <th>COST</th>
+          <th>QTT</th>
+          <th>TOTAL</th>
+        </tr>
+      </thead>
+      <% for(item of venda.items){%>
+        <tbody class="item">
+          <tr>
+            <td class="name"><%= item.name%></td>
+            <td class="size"><%= item.size%></td>
+            <td class="cost"><%= item.cost%></td>
+            <td class="quantity"><%= item.quantity%></td>
+            <td>R$ <%= item.cost.replace('R$', '') * item.quantity%></td>
+          </tr>
+        </tbody>
+      <%}%>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="total">R$ <%= vendaTotalCost%></td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="dateTime">
+      <span>DATA: <%= date%></span>
+      <span>HORA: <%= time%></span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    font-family: monospace;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .receipt{
+    font-size: 0.8rem;
+    width: 100%;
+    max-width: 364px;
+    background-color: #ffee5277;
+    text-align: center;
+  }
+  .receipt h1{
+    font-weight: 900;
+  }
+  .header{
+    font-size: 1.05rem;
+    font-weight: 900;
+  }
+  .client{
+    margin: 10px 10px;
+    text-align: left;
+  }
+  .client .nome{
+    font-weight: 700;
+  }
+  table{
+    width: 90%;
+    margin: 15px auto;
+    border-collapse: collapse;
+    text-align: center;
+    vertical-align: center;
+  }
+  tfoot .total{
+    font-weight: 900;
+  }
+  .dateTime{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 25px auto;
+    font-weight: 900;
+  }
+</style>
