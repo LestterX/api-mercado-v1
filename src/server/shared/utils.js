@@ -13,7 +13,7 @@ class Utils {
     const date = new Date();
     const month = date.getMonth();
     const months = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
-    return `${date.getDay()}/${months[month]}/${date.getFullYear()}`;
+    return `${date.getDate()}/${months[month]}/${date.getFullYear()}`;
   }
   getTimeNow() {
     const date = new Date();
